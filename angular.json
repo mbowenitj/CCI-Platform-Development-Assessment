@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "CCI-Platform-Development-Assessment:build:production"
+              "buildTarget": "CCI-Platform-Development-Assessment:build:production"
             },
             "development": {
-              "browserTarget": "CCI-Platform-Development-Assessment:build:development"
+              "buildTarget": "CCI-Platform-Development-Assessment:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "CCI-Platform-Development-Assessment:build"
+            "buildTarget": "CCI-Platform-Development-Assessment:build"
           }
         },
         "test": {
