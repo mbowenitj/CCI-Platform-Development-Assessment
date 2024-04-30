@@ -30,10 +30,10 @@ export class RepoComponent implements OnInit {
     this.setDataSourceAttributes();
   }
 
-  @ViewChild(MatPaginator) set matPaginator(mp: MatPaginator) {
-    this.paginator = mp;
-    this.setDataSourceAttributes();
-  }
+  // @ViewChild(MatPaginator) set matPaginator(mp: MatPaginator) {
+  //   this.paginator = mp;
+  //   this.setDataSourceAttributes();
+  // }
 
   setDataSourceAttributes() {
     this.dataSource.paginator = this.paginator;
@@ -46,18 +46,15 @@ export class RepoComponent implements OnInit {
 
   public dataLength: number;
 
-  private idArray: number[] = []; // Create array for checkbox selection in table.
 
   public displayedColumns: string[] = ['id','node_id','name','full_name', 'url'];
 
-  // For last name query
   public searchTerm$ = new Subject<string>();
-  // public dataSource: any;
   public dataSource: any;
 
+  // dataSource: MatTableDataSource<any>;
 
-  constructor(private data: DataService, private http: HttpClient) {
-
+  constructor(private data: DataService) {
   }
 
   setNewUserName(event: Event): void {
@@ -80,43 +77,33 @@ export class RepoComponent implements OnInit {
   }
 
   getAllRepos() {
-    this.data.getAllRepos().subscribe((data) => {
-      // this.dataSource = data;
+    this.data.getAllRepos().subscribe((data:any) => {
       this.dataSource = data;
+      // this.dataSource = new MatTableDataSource(data);
       console.log("repo list", this.dataSource)
+
     });
   }
 
-   getData() {
-    this.data.getAllRepos().subscribe((data) => {
-      // this.dataSource = data;
-      this.dataSource = data;
-      // console.log('pls data', this.dataSource.items[2].id);
-      for (const key in this.dataSource.items) {
-        if (this.dataSource.items.hasOwnProperty(key)) {
-          const element = this.dataSource.items[key].owner.url;
-          this.dataSource = element;
-          // console.log('ai man wena', key + ': ', element);
-        }
-      }
-    });
-  }
+  //  getData() {
+  //   this.data.getAllRepos().subscribe((data) => {
+  //     // this.dataSource = data;
+  //     this.dataSource = data;
+  //     // console.log('pls data', this.dataSource.items[2].id);
+  //     for (const key in this.dataSource.items) {
+  //       if (this.dataSource.items.hasOwnProperty(key)) {
+  //         const element = this.dataSource.items[key].owner.url;
+  //         this.dataSource = element;
+  //         // console.log('ai man wena', key + ': ', element);
+  //       }
+  //     }
+  //   });
+  // }
 
   // public getAllRecords(): any {
   //   this.data.getAllRecords(this.membersUrl).subscribe((data) => {
   //     this.dataLength = data.length;
   //     this.dataSource.data = data;
-  //   });
-  // }
-
-
-  public selectMember(selectedMember) {
-    // push the id's into an array then call it with the button.
-    return this.idArray.push(selectedMember);
-  }
-  // public editRecord(recordId) {
-  //   this.dialog.open(this.editMemberComponent, {
-  //     data: {recordId: recordId, idColumn: this.idColumn, paginator: this.paginator, dataSource: this.dataSource}
   //   });
   // }
 

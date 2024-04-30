@@ -46,31 +46,5 @@ export class DataService {
     return this.http.get('https://developer.github.com/v3/search/');
   }
 
-   //  Called by the Mat Datatable search by last name.
-  // nameSearch(terms) {
-  //   return terms.pipe(
-  //       debounceTime(300),
-  //       distinctUntilChanged(),
-  //       switchMap(term => {
-  //         const url = `api/members/?last_name=${term}`;
-  //         return this.http.get(url);
-  //     }),
-  //     catchError((error: any) => {
-  //          console.error(error);
-  //          return of();
-  //     }),
-  //   );
-  // }
-
-
-    // --------------GET ALL RECORDS ------------
-    // public getAllRecords(url): Observable<any> {
-    //   return this.http.get<MemberModel>(url).pipe(
-    //     catchError((error: any) => {
-    //          console.error(error);
-    //          return of();
-    //        }),
-    //   );
-    // }
 
 }

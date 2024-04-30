@@ -1,3 +1,11 @@
 <a [routerLink]="['/repos']">Back to product</a>
 
 <p>repo-details works!</p>
+
+<div *ngIf="repos">
+  {{product.name}}
+  <br/>
+  {{product.price|currency}}
+  <br>
+  {{product.description}}
+  </div>

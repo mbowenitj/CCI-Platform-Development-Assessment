@@ -15,7 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { MatGridListModule } from '@angular/material/grid-list';
 // import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -35,7 +35,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     HttpClientModule,
     MatSelectModule,
-
+    MatGridListModule,
     FormsModule,
     ReactiveFormsModule,
   ],
